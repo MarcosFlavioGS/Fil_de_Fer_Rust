@@ -1,5 +1,6 @@
 use crate::PointStruct;
 use sdl2::pixels::Color;
+use sdl2::rect::Point;
 
 pub fn init_map(map: &mut Vec<PointStruct>, matrix: &Vec<Vec<u32>>) {
     let mut x;
@@ -10,7 +11,7 @@ pub fn init_map(map: &mut Vec<PointStruct>, matrix: &Vec<Vec<u32>>) {
     for line in matrix {
         for num in line {
             let point = PointStruct {
-                point: sdl2::rect::Point::new(x, y),
+                point: Point::new(x, y),
                 color: Color::RGB(0, 255, 0),
                 value: *num,
             };
