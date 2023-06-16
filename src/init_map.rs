@@ -11,14 +11,14 @@ pub fn init_map(map: &mut Vec<PointStruct>, matrix: &Vec<Vec<u32>>) {
     for line in matrix {
         for num in line {
             let point = PointStruct {
-                point: Point::new(x, y),
+                point: Point::new(y, x),
                 color: Color::RGB(0, 255, 0),
                 value: *num,
             };
             map.push(point);
-            x += 10;
+            y += 10;
         }
-        x = 5;
-        y += 10;
+        y = 5;
+        x += 10;
     }
 }
