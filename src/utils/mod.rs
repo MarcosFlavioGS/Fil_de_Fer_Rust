@@ -1,2 +1,2 @@
-pub mod put_pixel;
+pub mod draw_lines;
 pub mod map_reader;
