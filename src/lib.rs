@@ -20,6 +20,7 @@ impl Map {
                 let mut tmp: Vec<PointStruct>;
                 let mut x = 5;
                 let mut y = 5;
+                let     dist: i32 = 10;
 
                 for line in matrix.iter() {
                     tmp = Vec::new();
@@ -27,13 +28,13 @@ impl Map {
                         let point = PointStruct {
                             point: Point::new(x, y),
                             color: Color::RGB(255, 255, 255),
-                            value: *value,
+                            value: (*value * dist as u32) / 3,
                         };
                         tmp.push(point);
-                        x += 10;
+                        x += dist;
                     }
                     x = 5;
-                    y += 10;
+                    y += dist;
                     map.push(tmp);
                 }
                 Map::Map(map)

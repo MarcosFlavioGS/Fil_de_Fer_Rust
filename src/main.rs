@@ -7,7 +7,7 @@ use sdl2::pixels::Color;
 use std::time::Duration;
 
 use fdf::{PointStruct, Map};
-use fdf::utils::put_pixel::put_pixel;
+use fdf::utils::draw_lines::draw_lines;
 use fdf::utils::map_reader::map_reader;
 
 fn main() {
@@ -41,11 +41,14 @@ fn main() {
                 _ => {}
             }
         }
+        /*
         for line in &isometric_map {
             for point in line {
                 put_pixel(&mut canvas, point.point, point.color);
             }
         }
+        */
+        draw_lines(&mut canvas, &isometric_map);
         canvas.present();
         ::std::thread::sleep(Duration::new(0, 1_000_000_000u32 / 60));
     }
