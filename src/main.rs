@@ -20,8 +20,8 @@ fn main() {
         .unwrap();
     let mut canvas = window.into_canvas().build().unwrap();
     let mut event_pump = sdl_context.event_pump().unwrap();
-    let map = Map::Map(Vec::new());
-    let isometric_map: Vec<Vec<PointStruct>>;
+    let     map = Map::Map(Vec::new());
+    let     isometric_map: Vec<Vec<PointStruct>>;
 
     if let Ok(matrix) = map_reader("maps/42.fdf") {
         isometric_map = map.init_map(&matrix).isometric();

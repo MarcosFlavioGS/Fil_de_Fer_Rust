@@ -41,9 +41,7 @@ impl Map {
             }
         }
     }
-}
 
-impl Map {
     pub fn isometric(self) ->Vec<Vec<PointStruct>> {
         match self {
             Map::Map(mut map) => {
