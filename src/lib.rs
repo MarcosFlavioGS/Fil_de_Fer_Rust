@@ -14,34 +14,32 @@ pub enum Map {
 }
 
 impl Map {
-    pub fn init_map(self, matrix: &Vec<Vec<u32>>) -> Map {
-        match self {
-            Map::Map(mut map) => {
-                let mut tmp: Vec<PointStruct>;
-                let mut x = 5;
-                let mut y = 5;
-                let     dist: i32 = 10;
+    pub fn init_map(&self, matrix: &Vec<Vec<u32>>, dist: i32) -> Map {
+        let mut map: Vec<Vec<PointStruct>> = Vec::new();
+        let mut tmp: Vec<PointStruct>;
+        let mut x = 5;
+        let mut y = 5;
 
-                for line in matrix.iter() {
-                    tmp = Vec::new();
-                    for value in line.iter() {
-                        let point = PointStruct {
-                            point: Point::new(x, y),
-                            color: Color::RGB(255, 255, 255),
-                            value: (*value * dist as u32) / 3,
-                        };
-                        tmp.push(point);
-                        x += dist;
-                    }
-                    x = 5;
-                    y += dist;
-                    map.push(tmp);
-                }
-                Map::Map(map)
+        for line in matrix.iter() {
+            tmp = Vec::new();
+            for value in line.iter() {
+                let point = PointStruct {
+                    point: Point::new(x, y),
+                    color: Color::RGB(255, 255, 255),
+                    value: (*value * dist as u32) / 3,
+                };
+                tmp.push(point);
+                x += dist;
             }
+            x = 5;
+            y += dist;
+            map.push(tmp);
         }
+        Map::Map(map)
     }
+}
 
+impl Map {
     pub fn isometric(self) ->Vec<Vec<PointStruct>> {
         match self {
             Map::Map(mut map) => {

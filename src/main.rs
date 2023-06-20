@@ -20,11 +20,13 @@ fn main() {
         .unwrap();
     let mut canvas = window.into_canvas().build().unwrap();
     let mut event_pump = sdl_context.event_pump().unwrap();
+    let     matrix: Vec<Vec<u32>>;
     let     map = Map::Map(Vec::new());
-    let     isometric_map: Vec<Vec<PointStruct>>;
+    let mut isometric_map: Vec<Vec<PointStruct>>;
+    let mut dist: i32 = 10;
 
-    if let Ok(matrix) = map_reader("maps/42.fdf") {
-        isometric_map = map.init_map(&matrix).isometric();
+    if let Ok(result_matrix) = map_reader("maps/42.fdf") {
+        matrix = result_matrix;
     } else {
         panic!("File not found !");
     }
@@ -38,6 +40,20 @@ fn main() {
                     keycode: Some(Keycode::Escape),
                     ..
                 } => break 'running,
+                Event::KeyDown {
+                    keycode: Some(Keycode::W),
+                    ..
+                } => dist += 1,
+                Event::KeyDown {
+                    keycode: Some(Keycode::S),
+                    ..
+                } => {
+                    if dist == 1 {
+                        ()
+                    } else {
+                        dist -= 1;
+                    }
+                },
                 _ => {}
             }
         }
@@ -48,6 +64,7 @@ fn main() {
             }
         }
         */
+        isometric_map = map.init_map(&matrix, dist).isometric();
         draw_lines(&mut canvas, &isometric_map);
         canvas.present();
         ::std::thread::sleep(Duration::new(0, 1_000_000_000u32 / 60));
