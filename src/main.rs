@@ -20,12 +20,12 @@ fn main() {
         .unwrap();
     let mut canvas = window.into_canvas().build().unwrap();
     let mut event_pump = sdl_context.event_pump().unwrap();
-    let     matrix: Vec<Vec<u32>>;
+    let     matrix: Vec<Vec<i32>>;
     let     map = Map::Map(Vec::new());
     let mut isometric_map: Vec<Vec<PointStruct>>;
     let mut dist: i32 = 10;
 
-    if let Ok(result_matrix) = map_reader("maps/42.fdf") {
+    if let Ok(result_matrix) = map_reader("maps/pylone.fdf") {
         matrix = result_matrix;
     } else {
         panic!("File not found !");

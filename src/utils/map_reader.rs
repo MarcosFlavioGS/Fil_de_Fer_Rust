@@ -1,11 +1,11 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-pub fn map_reader(file_path: &str) -> Result<Vec<Vec<u32>>, std::io::Error> {
+pub fn map_reader(file_path: &str) -> Result<Vec<Vec<i32>>, std::io::Error> {
     let file: File;
     let reader: BufReader<File>;
-    let mut result: Vec<Vec<u32>>;
-    let mut line_vector: Vec<u32>;
+    let mut result: Vec<Vec<i32>>;
+    let mut line_vector: Vec<i32>;
 
     file = File::open(file_path)?;
     reader = BufReader::new(file);
