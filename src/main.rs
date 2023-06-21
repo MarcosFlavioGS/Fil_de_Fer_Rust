@@ -59,11 +59,11 @@ fn main() {
                 Event::KeyDown {
                     keycode: Some(Keycode::Left),
                     ..
-                } => pos_x -= 5,
+                } => pos_x += 5,
                 Event::KeyDown {
                     keycode: Some(Keycode::Right),
                     ..
-                } => pos_x += 5,
+                } => pos_x -= 5,
                 Event::KeyDown {
                     keycode: Some(Keycode::Up),
                     ..
