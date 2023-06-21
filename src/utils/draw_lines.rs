@@ -1,8 +1,8 @@
-use sdl2::render::Canvas;
-use sdl2::video::Window;
+use crate::PointStruct;
 use sdl2::pixels::Color;
 use sdl2::rect::Point;
-use crate::PointStruct;
+use sdl2::render::Canvas;
+use sdl2::video::Window;
 
 fn put_line(canvas: &mut Canvas<Window>, a: Point, b: Point) {
     canvas.set_draw_color(Color::RGB(0, 255, 0));
@@ -10,9 +10,13 @@ fn put_line(canvas: &mut Canvas<Window>, a: Point, b: Point) {
     canvas.set_draw_color(Color::RGB(0, 0, 0));
 }
 
-pub fn draw_lines(canvas: &mut Canvas<Window>, map: &Vec<Vec<PointStruct>>, pos_x: i32, pos_y: i32) {
+pub fn draw_lines(
+    canvas: &mut Canvas<Window>,
+    map: &Vec<Vec<PointStruct>>,
+    pos_x: i32,
+    pos_y: i32,
+) {
     // Bresenham's line algorithm
-
     for (y, row) in map.iter().enumerate() {
         for (x, cell) in row.iter().enumerate() {
             if x < row.len() - 1 {
@@ -54,7 +58,7 @@ pub fn draw_lines(canvas: &mut Canvas<Window>, map: &Vec<Vec<PointStruct>>, pos_
                 let sy = if y0 < y1 { 1 } else { -1 };
                 let mut err = dx + dy;
                 loop {
-                    if x0 > 0 || x0 < 1400 || y0 > 0 || y0 < 800 { 
+                    if x0 > 0 || x0 < 1400 || y0 > 0 || y0 < 800 {
                         put_line(canvas, Point::new(x0, y0), Point::new(x0, y0));
                     }
                     if x0 == x1 && y0 == y1 {

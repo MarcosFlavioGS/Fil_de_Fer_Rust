@@ -4,9 +4,9 @@ use sdl2::pixels::Color;
 //use sdl2::rect::Point;
 use std::time::Duration;
 
-use fdf::{PointStruct, Map};
 use fdf::utils::draw_lines::draw_lines;
 use fdf::utils::map_reader::map_reader;
+use fdf::{Map, PointStruct};
 
 fn main() {
     let sdl_context = sdl2::init().unwrap();
@@ -16,10 +16,10 @@ fn main() {
         .position_centered()
         .build()
         .unwrap();
+    let matrix: Vec<Vec<i32>>;
+    let map = Map::Map(Vec::new());
     let mut canvas = window.into_canvas().build().unwrap();
     let mut event_pump = sdl_context.event_pump().unwrap();
-    let     matrix: Vec<Vec<i32>>;
-    let     map = Map::Map(Vec::new());
     let mut isometric_map: Vec<Vec<PointStruct>>;
     let mut dist: i32 = 10;
     let mut pos_x: i32 = 0;
@@ -53,7 +53,7 @@ fn main() {
                     } else {
                         dist -= 1;
                     }
-                },
+                }
                 Event::KeyDown {
                     keycode: Some(Keycode::A),
                     ..
