@@ -24,8 +24,10 @@ fn main() {
     let     map = Map::Map(Vec::new());
     let mut isometric_map: Vec<Vec<PointStruct>>;
     let mut dist: i32 = 10;
+    let mut pos_x: i32 = 0;
+    let mut pos_y: i32 = 0;
 
-    if let Ok(result_matrix) = map_reader("maps/pylone.fdf") {
+    if let Ok(result_matrix) = map_reader("maps/mars.fdf") {
         matrix = result_matrix;
     } else {
         panic!("File not found !");
@@ -54,18 +56,27 @@ fn main() {
                         dist -= 1;
                     }
                 },
+                Event::KeyDown {
+                    keycode: Some(Keycode::Left),
+                    ..
+                } => pos_x -= 5,
+                Event::KeyDown {
+                    keycode: Some(Keycode::Right),
+                    ..
+                } => pos_x += 5,
+                Event::KeyDown {
+                    keycode: Some(Keycode::Up),
+                    ..
+                } => pos_y += 5,
+                Event::KeyDown {
+                    keycode: Some(Keycode::Down),
+                    ..
+                } => pos_y -= 5,
                 _ => {}
             }
         }
-        /*
-        for line in &isometric_map {
-            for point in line {
-                put_pixel(&mut canvas, point.point, point.color);
-            }
-        }
-        */
         isometric_map = map.init_map(&matrix, dist).isometric();
-        draw_lines(&mut canvas, &isometric_map);
+        draw_lines(&mut canvas, &isometric_map, pos_x, pos_y);
         canvas.present();
         ::std::thread::sleep(Duration::new(0, 1_000_000_000u32 / 60));
     }
