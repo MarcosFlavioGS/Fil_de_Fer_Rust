@@ -41,11 +41,11 @@ fn main() {
                     ..
                 } => break 'running,
                 Event::KeyDown {
-                    keycode: Some(Keycode::W),
+                    keycode: Some(Keycode::Up),
                     ..
                 } => dist += 1,
                 Event::KeyDown {
-                    keycode: Some(Keycode::S),
+                    keycode: Some(Keycode::Down),
                     ..
                 } => {
                     if dist == 1 {
@@ -55,19 +55,19 @@ fn main() {
                     }
                 },
                 Event::KeyDown {
-                    keycode: Some(Keycode::Left),
+                    keycode: Some(Keycode::A),
                     ..
                 } => pos_x += 5,
                 Event::KeyDown {
-                    keycode: Some(Keycode::Right),
+                    keycode: Some(Keycode::D),
                     ..
                 } => pos_x -= 5,
                 Event::KeyDown {
-                    keycode: Some(Keycode::Up),
+                    keycode: Some(Keycode::W),
                     ..
                 } => pos_y += 5,
                 Event::KeyDown {
-                    keycode: Some(Keycode::Down),
+                    keycode: Some(Keycode::S),
                     ..
                 } => pos_y -= 5,
                 _ => {}

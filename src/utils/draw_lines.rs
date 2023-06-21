@@ -26,7 +26,9 @@ pub fn draw_lines(canvas: &mut Canvas<Window>, map: &Vec<Vec<PointStruct>>, pos_
                 let sy = if y0 < y1 { 1 } else { -1 };
                 let mut err = dx + dy;
                 loop {
-                    put_line(canvas, Point::new(x0, y0), Point::new(x0, y0));
+                    if x0 > 0 || x0 < 1400 || y0 > 0 || y0 < 800 {
+                        put_line(canvas, Point::new(x0, y0), Point::new(x0, y0));
+                    }
                     if x0 == x1 && y0 == y1 {
                         break;
                     }
@@ -52,7 +54,9 @@ pub fn draw_lines(canvas: &mut Canvas<Window>, map: &Vec<Vec<PointStruct>>, pos_
                 let sy = if y0 < y1 { 1 } else { -1 };
                 let mut err = dx + dy;
                 loop {
-                    put_line(canvas, Point::new(x0, y0), Point::new(x0, y0));
+                    if x0 > 0 || x0 < 1400 || y0 > 0 || y0 < 800 { 
+                        put_line(canvas, Point::new(x0, y0), Point::new(x0, y0));
+                    }
                     if x0 == x1 && y0 == y1 {
                         break;
                     }
