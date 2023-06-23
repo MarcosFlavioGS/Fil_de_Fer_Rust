@@ -48,9 +48,7 @@ fn main() {
                     keycode: Some(Keycode::Down),
                     ..
                 } => {
-                    if dist == 1 {
-                        ()
-                    } else {
+                    if dist > 1 {
                         dist -= 1;
                     }
                 }
