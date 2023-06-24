@@ -25,7 +25,7 @@ fn main() {
     let mut pos_x: i32 = 0;
     let mut pos_y: i32 = 0;
 
-    if let Ok(result_matrix) = map_reader("maps/42.fdf") {
+    if let Ok(result_matrix) = map_reader("maps/pylone.fdf") {
         matrix = result_matrix;
     } else {
         panic!("File not found !");
@@ -55,19 +55,19 @@ fn main() {
                 Event::KeyDown {
                     keycode: Some(Keycode::A),
                     ..
-                } => pos_x += 5,
+                } => pos_x -= 5,
                 Event::KeyDown {
                     keycode: Some(Keycode::D),
                     ..
-                } => pos_x -= 5,
+                } => pos_x += 5,
                 Event::KeyDown {
                     keycode: Some(Keycode::W),
                     ..
-                } => pos_y += 5,
+                } => pos_y -= 5,
                 Event::KeyDown {
                     keycode: Some(Keycode::S),
                     ..
-                } => pos_y -= 5,
+                } => pos_y += 5,
                 _ => {}
             }
         }
