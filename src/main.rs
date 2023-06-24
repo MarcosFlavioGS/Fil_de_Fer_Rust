@@ -25,7 +25,7 @@ fn main() {
     let mut pos_x: i32 = 0;
     let mut pos_y: i32 = 0;
 
-    if let Ok(result_matrix) = map_reader("maps/pylone.fdf") {
+    if let Ok(result_matrix) = map_reader("maps/42.fdf") {
         matrix = result_matrix;
     } else {
         panic!("File not found !");

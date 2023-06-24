@@ -47,7 +47,7 @@ pub fn draw_lines(
                     }
                 }
             }
-            if y < map.len() - 1 {
+            if y < map.len() - 1 && x < map[y + 1].len() {
                 let mut x0 = cell.point.x + pos_x;
                 let mut y0 = cell.point.y + pos_y;
                 let x1 = map[y + 1][x].point.x + pos_x;
