@@ -5,7 +5,7 @@ use sdl2::render::Canvas;
 use sdl2::video::Window;
 
 fn put_line(canvas: &mut Canvas<Window>, a: Point, b: Point) {
-    canvas.set_draw_color(Color::RGB(0, 255, 0));
+    canvas.set_draw_color(Color::RGB(255, 255, 255));
     canvas.draw_line(a, b).unwrap();
     canvas.set_draw_color(Color::RGB(0, 0, 0));
 }
