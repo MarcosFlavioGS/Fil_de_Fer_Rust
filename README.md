@@ -33,11 +33,10 @@ Where each number represents a height, and the number of numbers in each line re
 
 ### Screenshots
 
-![Screenshot 1](https://i.imgur.com/6Z2ZQ8m.png)
+![Capturar](https://github.com/MarcosFlavioGS/Fil_de_Fer_Rust/assets/95108526/d932e3ca-657c-4315-9fcb-9c1773dd0ae8)
 
-![Screenshot 2](https://i.imgur.com/6Z2ZQ8m.png)
+![Capturar1](https://github.com/MarcosFlavioGS/Fil_de_Fer_Rust/assets/95108526/e6bf9773-ad4c-406d-8b0d-50601f7af3b9)
 
-![Screenshot 3](https://i.imgur.com/6Z2ZQ8m.png)
+![42](https://github.com/MarcosFlavioGS/Fil_de_Fer_Rust/assets/95108526/49fe8624-b4f5-4f85-bf56-4f42960fc78a)
 
-![Screenshot 4](https://i.imgur.com/6Z2ZQ8m.png)
-
+![pylone](https://github.com/MarcosFlavioGS/Fil_de_Fer_Rust/assets/95108526/fe1fc6bd-9b92-4e61-a34a-dd5070497829)
