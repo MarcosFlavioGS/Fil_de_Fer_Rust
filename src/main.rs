@@ -68,6 +68,14 @@ fn main() {
                     keycode: Some(Keycode::S),
                     ..
                 } => pos_y += 5,
+                Event::KeyDown {
+                    keycode: Some(Keycode::R),
+                    ..
+                } => {
+                    pos_x = 0;
+                    pos_y = 0;
+                    dist = 10;
+                }
                 _ => {}
             }
         }
